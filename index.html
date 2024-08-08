@@ -32,12 +32,12 @@
             const pwd = params.get('pwd')
             const serviceId = params.get('service_id')
             const channelId = params.get('channelId')
-            //const deviceId = params.get('device_id')
+            const deviceId = params.get('device_id')
 
             if (sessionId)
                 picea.restore({ user: userName, password: pwd }, onTransactionCompleted, sessionId)
             else
-                picea.run({ user: userName, password: pwd, autorun: Number(serviceId), channelId: Number(channelId) }, onTransactionCompleted)
+                picea.run({ user: userName, password: pwd, autorun: Number(serviceId), channelId: Number(channelId), identifiers: {device_id: deviceId} }, onTransactionCompleted)
 
         }</script>
 </body>
